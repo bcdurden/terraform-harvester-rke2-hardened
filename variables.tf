@@ -73,3 +73,13 @@ variable "target_network_name" {
   type = string
   description = "The target network name for the cluster"
 }
+
+variable "carbide_username" {
+    type = string
+    description = "The username for the Carbide container registry"
+}
+
+variable "carbide_password" {
+    type = string
+    description = "The password for the Carbide container registry"
+}
