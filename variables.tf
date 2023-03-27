@@ -83,3 +83,8 @@ variable "carbide_password" {
     type = string
     description = "The password for the Carbide container registry"
 }
+
+variable "registry_url" {
+  type = string
+  description = "The Carbide registry URL from which to pull images"
+}
