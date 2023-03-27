@@ -16,6 +16,14 @@ resource "kubernetes_secret" "worker_config" {
           token: ${var.cluster_token}
           server: https://${var.master_hostname}:9345
           system-default-registry: ${var.rke2_registry}
+          write-kubeconfig-mode: 0640
+          profile: cis-1.6
+          kube-apiserver-arg:
+          - authorization-mode=RBAC,Node
+          kubelet-arg:
+          - protect-kernel-defaults=true
+          - read-only-port=0
+          - authorization-mode=Webhook
       - path: /etc/hosts
         owner: root
         content: |

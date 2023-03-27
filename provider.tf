@@ -18,8 +18,4 @@ terraform {
       version = "1.2.0"
     }
   }
-  backend "kubernetes" {
-    secret_suffix    = "state-rke2"
-    config_path      = "~/.kube/config"
-  }
 }
