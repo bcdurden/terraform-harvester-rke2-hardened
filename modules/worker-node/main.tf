@@ -56,7 +56,7 @@ resource "harvester_virtualmachine" "node" {
   
   cloudinit {
     type      = "noCloud"
-    user_data_secret_name = "worker-config-${count.index}"
+    user_data_secret_name = "${var.node_prefix}-worker-config-${count.index}"
     network_data = var.network_data
   }
 }
