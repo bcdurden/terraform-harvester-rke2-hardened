@@ -1,6 +1,6 @@
 resource "kubernetes_secret" "cp_main_config" {
   metadata {
-    name = "${var.node_prefix}-cp-config"
+    name = "${var.node_name_prefix}-cp-config"
   }
 
   type = "secret"
@@ -90,7 +90,7 @@ resource "kubernetes_secret" "cp_main_config" {
 resource "kubernetes_secret" "cp_ha_config" {
   count = var.ha_mode ? 2 : 0
   metadata {
-    name = "${var.node_prefix}-cp-ha-config-${count.index + 1}"
+    name = "${var.node_name_prefix}-cp-ha-config-${count.index + 1}"
   }
 
   type = "secret"
