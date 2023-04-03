@@ -56,7 +56,6 @@ resource "kubernetes_secret" "worker_config" {
       - INSTALL_RKE2_TYPE="agent" INSTALL_RKE2_ARTIFACT_PATH=/var/lib/rancher/rke2-artifacts sh /var/lib/rancher/install.sh
       - systemctl enable rke2-agent.service
       - cp -f /usr/local/share/rke2/rke2-cis-sysctl.conf /etc/sysctl.d/60-rke2-cis.conf
-      - useradd -r -c "etcd user" -s /sbin/nologin -M etcd -U
       - systemctl restart systemd-sysctl
       - systemctl start rke2-agent.service
       ssh_authorized_keys: 
