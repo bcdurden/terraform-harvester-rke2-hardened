@@ -65,26 +65,31 @@ variable "worker_memory_size" {
 }
 
 variable "harvester_rke2_image_name" {
-  type = string
+  type        = string
   description = "The name of the VM image to use as a base for the nodes"
 }
 
 variable "target_network_name" {
-  type = string
+  type        = string
   description = "The target network name for the cluster"
 }
 
 variable "carbide_username" {
-    type = string
+    type        = string
     description = "The username for the Carbide container registry"
 }
 
 variable "carbide_password" {
-    type = string
+    type        = string
     description = "The password for the Carbide container registry"
 }
 
+variable "network_data" {
+  type        = string
+  description = "Network Data field for cloud-init"
+}
+
 variable "registry_url" {
-  type = string
+  type        = string
   description = "The Carbide registry URL from which to pull images"
 }
