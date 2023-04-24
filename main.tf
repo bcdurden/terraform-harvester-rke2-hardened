@@ -13,7 +13,7 @@ module "controlplane-nodes" {
   controlplane_node_memory_size = var.control_plane_memory_size
   carbide_username = var.carbide_username
   carbide_password = var.carbide_password
-  network_data = var.network_data
+  network_data = var.cp_network_data
 
   ha_mode = var.control_plane_ha_mode
 }
@@ -37,5 +37,4 @@ module "worker" {
   worker_node_memory_size = var.worker_memory_size
   carbide_username = var.carbide_username
   carbide_password = var.carbide_password
-  network_data = var.network_data
 }

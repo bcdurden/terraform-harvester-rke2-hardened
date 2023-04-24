@@ -55,7 +55,7 @@ resource "harvester_virtualmachine" "node-main" {
   cloudinit {
     type      = "noCloud"
     user_data_secret_name = "${var.node_name_prefix}-cp-config"
-    network_data = var.network_data
+    network_data = var.network_data[0]
   }
 }
 resource "harvester_virtualmachine" "node-ha" {
@@ -115,6 +115,6 @@ resource "harvester_virtualmachine" "node-ha" {
   cloudinit {
     type      = "noCloud"
     user_data_secret_name = "${var.node_name_prefix}-cp-ha-config-${count.index + 1}"
-    network_data = var.network_data
+    network_data = var.network_data[count.index + 1]
   }
 }

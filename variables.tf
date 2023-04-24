@@ -84,8 +84,8 @@ variable "carbide_password" {
     description = "The password for the Carbide container registry"
 }
 
-variable "network_data" {
-  type        = string
+variable "cp_network_data" {
+  type        = list
   description = "Network Data field for cloud-init"
 }
 

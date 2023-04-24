@@ -45,8 +45,8 @@ variable "master_vip_interface" {
     default = "enp1s0"
 }
 variable "network_data" {
-    type = string
-    default = ""
+    type = list
+    default = []
 }
 variable "rke2_version" {
     type = string
