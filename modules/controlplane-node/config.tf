@@ -74,11 +74,12 @@ resource "kubernetes_secret" "cp_main_config" {
         - '--now'
         - qemu-guest-agent.service
       - INSTALL_RKE2_ARTIFACT_PATH=/var/lib/rancher/rke2-artifacts sh /var/lib/rancher/install.sh
-      ${var.ha_mode ? "- cat /var/lib/rancher/kube-vip-k3s |  vipAddress=${var.master_vip} vipInterface=${var.master_vip_interface} sh | sed -e 's|ghcr.io/kube-vip|${var.rke2_registry}/kube-vip|g' | sudo tee /var/lib/rancher/rke2/server/manifests/vip.yaml" : "-echo ha_mode=false"}
+      - cat /var/lib/rancher/kube-vip-k3s |  vipAddress=${var.master_vip} vipInterface=${var.master_vip_interface} sh | sed -e 's|ghcr.io/kube-vip|${var.rke2_registry}/kube-vip|g' | sudo tee /var/lib/rancher/rke2/server/manifests/vip.yaml
       - systemctl enable rke2-server.service
       - cp -f /usr/local/share/rke2/rke2-cis-sysctl.conf /etc/sysctl.d/60-rke2-cis.conf
       - useradd -r -c "etcd user" -s /sbin/nologin -M etcd -U
       - systemctl restart systemd-sysctl
+      - sleep 30
       - systemctl start rke2-server.service
       ssh_authorized_keys: 
       - ${var.ssh_pubkey}
