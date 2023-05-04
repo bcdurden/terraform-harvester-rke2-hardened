@@ -53,7 +53,7 @@ resource "kubernetes_secret" "worker_config" {
         - enable
         - '--now'
         - qemu-guest-agent.service
-      - INSTALL_RKE2_TYPE="agent" INSTALL_RKE2_ARTIFACT_PATH=/var/lib/rancher/rke2-artifacts sh /var/lib/rancher/install.sh
+      - INSTALL_RKE2_TYPE="agent" INSTALL_RKE2_VERSION=${var.rke2_version} sh /var/lib/rancher/install.sh
       - systemctl enable rke2-agent.service
       - cp -f /usr/local/share/rke2/rke2-cis-sysctl.conf /etc/sysctl.d/60-rke2-cis.conf
       - systemctl restart systemd-sysctl

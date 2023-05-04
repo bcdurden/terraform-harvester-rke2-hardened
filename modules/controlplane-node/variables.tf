@@ -50,7 +50,7 @@ variable "network_data" {
 }
 variable "rke2_version" {
     type = string
-    default = "v1.24.3+rke2r1"
+    default = "v1.24.9+rke2r2"
 }
 variable "cluster_token" {
     type = string
