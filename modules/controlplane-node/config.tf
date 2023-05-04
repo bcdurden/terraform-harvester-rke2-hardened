@@ -79,8 +79,6 @@ resource "kubernetes_secret" "cp_main_config" {
       - cp -f /usr/local/share/rke2/rke2-cis-sysctl.conf /etc/sysctl.d/60-rke2-cis.conf
       - useradd -r -c "etcd user" -s /sbin/nologin -M etcd -U
       - systemctl restart systemd-sysctl
-      - sleep 30
-      - systemctl start rke2-server.service
       ssh_authorized_keys: 
       - ${var.ssh_pubkey}
     EOT 
