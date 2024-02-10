@@ -1,66 +1,66 @@
 variable "node_prefix" {
-    type = string
+  type = string
 }
 variable "namespace" {
-    type = string
-    default = "default"
+  type    = string
+  default = "default"
 }
 variable "disk_size" {
-    type = string
-    default = "40Gi"
+  type    = string
+  default = "40Gi"
 }
 variable "node_image_id" {
-    type = string
+  type = string
 }
 variable "ssh_keys" {
-    type = list
-    default = []
+  type    = list(any)
+  default = []
 }
 variable "vlan_id" {
-    type = string
+  type = string
 }
 variable "master_hostname" {
-    type = string
-    default = "rke2master"
+  type    = string
+  default = "rke2master"
 }
 variable "master_vip" {
-    type = string
+  type = string
 }
 variable "network_data" {
-    type = string
-    default = ""
+  type    = string
+  default = ""
 }
 variable "rke2_version" {
-    type = string
-    default = "v1.24.9+rke2r2"
+  type    = string
+  default = "v1.24.9+rke2r2"
 }
 variable "cluster_token" {
-    type = string
-    default = "my-shared-token"
+  type    = string
+  default = "my-shared-token"
 }
 variable "ssh_pubkey" {
-    type = string
-    default = ""
+  type    = string
+  default = ""
 }
 variable "ssh_key" {
-    type = string
+  type = string
 }
 variable "worker_count" {
-    type = number
-    default = 3
+  type    = number
+  default = 3
 }
 variable "worker_node_core_count" {
-    type = string
+  type = string
 }
 variable "worker_node_memory_size" {
-    type = string
+  type = string
 }
 variable "rke2_registry" {
-    type = string
+  type = string
 }
 variable "carbide_password" {
-    type = string
+  type = string
 }
 variable "carbide_username" {
-    type = string
+  type = string
 }
