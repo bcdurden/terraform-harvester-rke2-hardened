@@ -53,14 +53,14 @@ resource "harvester_virtualmachine" "node-main" {
   }
 
   cloudinit {
-    type      = "noCloud"
+    type                  = "noCloud"
     user_data_secret_name = "${var.node_name_prefix}-cp-config"
-    network_data = var.network_data[0]
+    network_data          = var.network_data[0]
   }
 }
 resource "harvester_virtualmachine" "node-ha" {
   count = var.ha_mode ? 2 : 0
-  name                 = "${var.node_name_prefix}-${count.index + 1}"
+  name  = "${var.node_name_prefix}-${count.index + 1}"
   depends_on = [
     harvester_virtualmachine.node-main
   ]
@@ -113,8 +113,8 @@ resource "harvester_virtualmachine" "node-ha" {
   }
 
   cloudinit {
-    type      = "noCloud"
+    type                  = "noCloud"
     user_data_secret_name = "${var.node_name_prefix}-cp-ha-config-${count.index + 1}"
-    network_data = var.network_data[count.index + 1]
+    network_data          = var.network_data[count.index + 1]
   }
 }

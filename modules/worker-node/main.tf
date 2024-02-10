@@ -53,10 +53,10 @@ resource "harvester_virtualmachine" "node" {
     image       = var.node_image_id
     auto_delete = true
   }
-  
+
   cloudinit {
-    type      = "noCloud"
+    type                  = "noCloud"
     user_data_secret_name = "${var.node_prefix}-worker-config-${count.index}"
-    network_data = var.network_data
+    network_data          = var.network_data
   }
 }
